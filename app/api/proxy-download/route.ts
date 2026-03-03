@@ -35,10 +35,12 @@ function isValidUrl(urlString: string): boolean {
   try {
     const url = new URL(urlString)
     // Only allow https URLs and specific trusted domains
-    return url.protocol === 'https:' && (
-      url.hostname.includes('hyperhuman.deemos.com') ||
-      url.hostname.includes('amazonaws.com') ||
-      url.hostname.includes('cloudfront.net')
+    return (
+      url.protocol === "https:" &&
+      (url.hostname.includes("hyperhuman.deemos.com") ||
+        url.hostname.includes("amazonaws.com") ||
+        url.hostname.includes("cloudfront.net") ||
+        url.hostname.includes("hyper3d.com"))
     )
   } catch {
     return false
